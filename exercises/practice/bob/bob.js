@@ -4,5 +4,13 @@
 //
 
 export const hey = (message) => {
-  throw new Error('Remove this statement and implement this function');
+  if (!message.trim()) return 'Fine. Be that way!';
+
+  const isAllCaps = /[A-Z]/.test(message) && !/[a-z]/.test(message);
+  const isQuestion = /\?$/.test(message.trim());
+  if (isAllCaps && isQuestion) return "Calm down, I know what I'm doing!";
+  if (isAllCaps && !isQuestion) return 'Whoa, chill out!';
+  if (!isAllCaps && isQuestion) return 'Sure.';
+
+  return 'Whatever.';
 };
