@@ -4,27 +4,27 @@
 //
 
 export class LinkedList {
-  push() {
-    throw new Error('Remove this statement and implement this function');
+  constructor() {
+    this.list = new Array();
   }
-
+  push(value) {
+    this.list.push(value);
+  }
   pop() {
-    throw new Error('Remove this statement and implement this function');
+    return this.list.pop();
   }
-
   shift() {
-    throw new Error('Remove this statement and implement this function');
+    return this.list.shift();
   }
-
-  unshift() {
-    throw new Error('Remove this statement and implement this function');
+  unshift(value) {
+    this.list.unshift(value);
   }
-
-  delete() {
-    throw new Error('Remove this statement and implement this function');
+  delete(value) {
+    const indexOfValue = this.list.indexOf(value);
+    if (indexOfValue === -1) return;
+    this.list.splice(indexOfValue, 1);
   }
-
   count() {
-    throw new Error('Remove this statement and implement this function');
+    return this.list.length;
   }
 }
