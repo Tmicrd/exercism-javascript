@@ -3,6 +3,7 @@
 // convenience to get you started writing code faster.
 //
 
-export const isPangram = () => {
-  throw new Error('Remove this statement and implement this function');
-};
+export const array = [...'abcdefghijklmnopqrstuvwxyz'];
+
+export const isPangram = (sentence) =>
+  array.every((letter) => sentence.toLowerCase().includes(letter));
