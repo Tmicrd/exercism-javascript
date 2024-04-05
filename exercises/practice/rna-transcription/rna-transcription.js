@@ -3,6 +3,16 @@
 // convenience to get you started writing code faster.
 //
 
-export const toRna = () => {
-  throw new Error('Remove this statement and implement this function');
+export const toRna = (input) => {
+  return input
+    .split('')
+    .map((i) => hashMap[i])
+    .join('');
+};
+
+export const hashMap = {
+  G: 'C',
+  C: 'G',
+  T: 'A',
+  A: 'U',
 };
