@@ -4,15 +4,30 @@
 //
 
 export class GradeSchool {
+  constructor() {
+    this.students = new Map();
+  }
+
+  add(student, level) {
+    this.students.set(student, level);
+  }
+
+  grade(level) {
+    return Array.from(this.students.entries())
+      .filter(([, studentGrade]) => studentGrade === level)
+      .map(([student]) => student)
+      .sort();
+  }
+
   roster() {
-    throw new Error('Remove this statement and implement this function');
-  }
+    const result = {};
 
-  add() {
-    throw new Error('Remove this statement and implement this function');
-  }
+    Array.from(this.students.entries()).forEach(([, studentGrade]) => {
+      if (!result[studentGrade]) {
+        result[studentGrade] = this.grade(studentGrade);
+      }
+    });
 
-  grade() {
-    throw new Error('Remove this statement and implement this function');
+    return result;
   }
 }
