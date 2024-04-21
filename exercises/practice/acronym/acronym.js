@@ -3,6 +3,10 @@
 // convenience to get you started writing code faster.
 //
 
-export const parse = () => {
-  throw new Error('Remove this statement and implement this function');
+export const parse = (phrase) => {
+  const newPhrase = phrase.replace(/[-_]/g, ' ').split(' ');
+  return newPhrase
+    .map((item) => item.split('')[0])
+    .join('')
+    .toUpperCase();
 };
