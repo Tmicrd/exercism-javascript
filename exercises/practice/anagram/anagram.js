@@ -3,6 +3,12 @@
 // convenience to get you started writing code faster.
 //
 
-export const findAnagrams = () => {
-  throw new Error('Remove this statement and implement this function');
+export const findAnagrams = (word, wordList) => {
+  return wordList
+    .filter((item) => word.toLowerCase() != item.toLowerCase())
+    .filter(
+      (item) =>
+        word.toLowerCase().split('').sort().join('') ===
+        item.toLowerCase().split('').sort().join(''),
+    );
 };
