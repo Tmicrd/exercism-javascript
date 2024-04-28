@@ -5,10 +5,28 @@
 
 export class Series {
   constructor(series) {
-    throw new Error('Remove this statement and implement this function');
+    this.series = series;
   }
-
   slices(sliceLength) {
-    throw new Error('Remove this statement and implement this function');
+    let lastDigit = this.series.length - sliceLength + 1;
+    if (this.series.length === 0) {
+      throw new Error('series cannot be empty');
+    } else if (sliceLength === 0) {
+      throw new Error('slice length cannot be zero');
+    } else if (sliceLength < 0) {
+      throw new Error('slice length cannot be negative');
+    } else if (lastDigit <= 0) {
+      throw new Error('slice length cannot be greater than series length');
+    } else {
+      let finalArr = [];
+      for (let i = 0; i < lastDigit; i++) {
+        let innerArr = [];
+        for (let j = i; j < i + sliceLength; j++) {
+          innerArr.push(parseInt(this.series[j]));
+        }
+        finalArr.push(innerArr);
+      }
+      return finalArr;
+    }
   }
 }
