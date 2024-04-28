@@ -3,6 +3,9 @@
 // convenience to get you started writing code faster.
 //
 
-export const transpose = () => {
-  throw new Error('Remove this statement and implement this function');
+export const transpose = (arr) => {
+  const length = Math.max(0, ...arr.map((item) => item.length));
+  return [...Array(length)].map((_, i) =>
+    arr.reduceRight((acc, cur) => (cur[i] || (acc ? ' ' : '')) + acc, ''),
+  );
 };
