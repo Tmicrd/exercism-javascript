@@ -3,6 +3,13 @@
 // convenience to get you started writing code faster.
 //
 
-export const compute = () => {
-  throw new Error('Remove this statement and implement this function');
+export const compute = (strand1, strand2) => {
+  if (strand1.length !== strand2.length) {
+    throw new Error('strands must be of equal length');
+  }
+
+  // Calculate Hamming distance
+  return [...strand1].reduce((difference, currentChar, index) => {
+    return currentChar !== strand2[index] ? difference + 1 : difference;
+  }, 0);
 };
