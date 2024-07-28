@@ -4,43 +4,47 @@
 //
 
 export class ComplexNumber {
-  constructor() {
-    throw new Error('Remove this statement and implement this function');
+  constructor(real, imag) {
+    this.real = real;
+    this.imag = imag;
   }
 
-  get real() {
-    throw new Error('Remove this statement and implement this function');
+  add(other) {
+    return new ComplexNumber(this.real + other.real, this.imag + other.imag);
   }
 
-  get imag() {
-    throw new Error('Remove this statement and implement this function');
+  sub(other) {
+    return new ComplexNumber(this.real - other.real, this.imag - other.imag);
   }
 
-  add() {
-    throw new Error('Remove this statement and implement this function');
+  mul(other) {
+    return new ComplexNumber(
+      this.real * other.real - this.imag * other.imag,
+      this.imag * other.real + this.real * other.imag,
+    );
   }
 
-  sub() {
-    throw new Error('Remove this statement and implement this function');
-  }
-
-  div() {
-    throw new Error('Remove this statement and implement this function');
-  }
-
-  mul() {
-    throw new Error('Remove this statement and implement this function');
+  div(other) {
+    return new ComplexNumber(
+      (this.real * other.real + this.imag * other.imag) /
+        (other.real * other.real + other.imag * other.imag),
+      (this.imag * other.real - this.real * other.imag) /
+        (other.real * other.real + other.imag * other.imag),
+    );
   }
 
   get abs() {
-    throw new Error('Remove this statement and implement this function');
+    return Math.sqrt(this.real * this.real + this.imag * this.imag);
   }
 
   get conj() {
-    throw new Error('Remove this statement and implement this function');
+    return new ComplexNumber(this.real, this.imag !== 0 ? -this.imag : 0);
   }
 
   get exp() {
-    throw new Error('Remove this statement and implement this function');
+    return new ComplexNumber(
+      Math.exp(this.real) * Math.cos(this.imag),
+      Math.exp(this.real) * Math.sin(this.imag),
+    );
   }
 }
