@@ -2,17 +2,30 @@
 // This is only a SKELETON file for the 'Allergies' exercise. It's been provided as a
 // convenience to get you started writing code faster.
 //
+const possibleAllergies = [
+  'eggs',
+  'peanuts',
+  'shellfish',
+  'strawberries',
+  'tomatoes',
+  'chocolate',
+  'pollen',
+  'cats',
+];
 
 export class Allergies {
-  constructor() {
-    throw new Error('Remove this statement and implement this function');
+  constructor(allergenIndex) {
+    this.allergenIndex = allergenIndex;
   }
 
   list() {
-    throw new Error('Remove this statement and implement this function');
+    // eslint-disable-next-line no-bitwise, no-restricted-properties
+    return possibleAllergies.filter(
+      (allergy, i) => this.allergenIndex & Math.pow(2, i),
+    );
   }
 
-  allergicTo() {
-    throw new Error('Remove this statement and implement this function');
+  allergicTo(food) {
+    return this.list().some((allergy) => allergy === food);
   }
 }
