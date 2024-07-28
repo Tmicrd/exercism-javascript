@@ -3,6 +3,20 @@
 // convenience to get you started writing code faster.
 //
 
-export const convert = () => {
-  throw new Error('Remove this statement and implement this function');
+export const convert = (n) => {
+  let result = '';
+
+  const mappings = [
+    { divisor: 3, sound: 'Pling' },
+    { divisor: 5, sound: 'Plang' },
+    { divisor: 7, sound: 'Plong' },
+  ];
+
+  mappings.forEach(({ divisor, sound }) => {
+    if (n % divisor === 0) {
+      result += sound;
+    }
+  });
+
+  return result || n.toString();
 };
